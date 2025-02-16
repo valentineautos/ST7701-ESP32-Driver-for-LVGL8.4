@@ -24,21 +24,25 @@ void ST7701_WriteData(uint8_t data) {
 }
 
 void ST7701_CS_EN(){
-  // Set_EXIO(EXIO_PIN3,Low);
-  // digitalWrite(42, HIGH);
-  gpio_set_level(LCD_CS_PIN, 0);
+  Set_EXIO(EXIO_PIN3,Low);
+  // Comment out above and in below for Waveshare LCD Driver Board
+  // gpio_set_level(LCD_CS_PIN, 0);
+
   vTaskDelay(pdMS_TO_TICKS(10));
 }
 void ST7701_CS_Dis(){
-  // Set_EXIO(EXIO_PIN3,High);
-  gpio_set_level(LCD_CS_PIN, 1);
-  digitalWrite(42, LOW);
+  Set_EXIO(EXIO_PIN3,High);
+  // Comment out above and in below for Waveshare LCD Driver Board
+  // gpio_set_level(LCD_CS_PIN, 1);
+
   vTaskDelay(pdMS_TO_TICKS(10));
 }
+
 void ST7701_Reset(){
-  Set_EXIO(EXIO_PIN3,Low);
+  // Change to EXIO PIN 3 for Waveshare LCD Driver Board
+  Set_EXIO(EXIO_PIN1,Low);
   vTaskDelay(pdMS_TO_TICKS(10));
-  Set_EXIO(EXIO_PIN3,High);
+  Set_EXIO(EXIO_PIN1,High);
   vTaskDelay(pdMS_TO_TICKS(50));
 }
 void ST7701_Init() {
