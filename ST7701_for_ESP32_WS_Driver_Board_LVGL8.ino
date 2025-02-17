@@ -16,11 +16,11 @@ lv_obj_t *main_scr;
 lv_obj_t *spinner;
 
 void make_ui() {
-  main_screen = lv_obj_create(NULL);
-  lv_obj_set_style_bg_color(main_screen, lv_color_black(), 0);
-  lv_scr_load(main_screen);
+  main_scr = lv_obj_create(NULL);
+  lv_obj_set_style_bg_color(main_scr, lv_color_black(), 0);
+  lv_scr_load(main_scr);
 
-  spinner = lv_spinner_create(main_screen, 1000, 200);
+  spinner = lv_spinner_create(main_scr, 1000, 200);
   lv_obj_set_size(spinner, 240, 240);
   lv_obj_center(spinner);
 }
